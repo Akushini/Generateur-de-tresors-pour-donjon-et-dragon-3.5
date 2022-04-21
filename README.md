@@ -13,3 +13,16 @@ Le tirage donne les gains en pièces.
 Mise à jour le 21/04/2022
 Le tirage donne les gains en pièces, les gemmes et objets d'arts trouvés ainsi que la valeur totale de ces derniers. 
 
+To do :
+  Ajouter les objets à liste de trésors à obtenir
+  Constituer une base de données :
+    Gérer la table des objets communs
+    Gérer la table des objets magiques :
+      Gérer la table des anneaux
+      Gérer la table des armes
+      Gérer la table des armures et boucliers
+      Gérer la table des batons
+      Gérer la table des parchemins
+      Gérer la table des potions et huiles
+      Gérer la table des objets merveilleux
+      Gérer la table des sceptres
