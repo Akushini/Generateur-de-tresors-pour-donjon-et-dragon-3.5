@@ -155,7 +155,7 @@ while gemmes_estimees < gemmes:
         valeur_des_gemmes += 5000
     gemmes_estimees += 1
 
-# Tirage de la valeur des gemmes
+# Tirage de la valeur des objets d'arts
 valeur_des_objets_arts = 0
 objets_arts_estimees = 0
 while objets_arts_estimees < objets_arts:
