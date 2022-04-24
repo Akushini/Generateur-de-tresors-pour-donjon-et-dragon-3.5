@@ -17,6 +17,7 @@ Mise à jour de 21/04/2022
 Mise à jour de 24/04/2022
  
  Le tirage permet de donner les gains en objets magiques et non magiques
+ Le tirage peut boucler avec une question finale
 
 To do :
 
