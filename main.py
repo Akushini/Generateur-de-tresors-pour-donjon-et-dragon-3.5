@@ -13,12 +13,13 @@ while not bonne_reponse:
 facteur_tresor = input("Entrez le facteur de tresor :")
 
 # tirage aleatoire du tresor en pieces
-piece_cuivre = piece_argent = piece_or = piece_platine = gemmes = objets_arts = 0
+piece_cuivre = piece_argent = piece_or = piece_platine = gemmes = objets_arts = objet_non_magique = 0
+objet_magique_faible = objets_magique_intermediare = objets_magique_puissant = 0
 
 # tirage niveau 1
 if niveau_rencontre == "1":
-    tresors_tires = 0
-    while tresors_tires < int(facteur_tresor):
+    pieces_tirees = 0
+    while pieces_tirees < int(facteur_tresor):
         resultat = random.randint(1, 100)
         if 15 <= resultat <= 29:
             piece_cuivre += lancer_des(1, 6) * 1000
@@ -28,22 +29,30 @@ if niveau_rencontre == "1":
             piece_or += lancer_des(2, 8) * 10
         if 96 <= resultat <= 100:
             piece_platine += lancer_des(1, 3) * 10
-        tresors_tires += 1
+        pieces_tirees += 1
 # tirage des gemmes et objets d'arts
-    gemmes_objet_arts_tires = 0
-    while gemmes_objet_arts_tires < int(facteur_tresor):
+    biens_precieux_tires = 0
+    while biens_precieux_tires < int(facteur_tresor):
         resultat = random.randint(1, 100)
         if 91 <= resultat <= 95:
             gemmes += 1
         if 96 <= resultat <= 100:
             objets_arts += 1
-        gemmes_objet_arts_tires += 1
-
+        biens_precieux_tires += 1
+# tirage des objets communs ou magiques
+    objets_tires = 0
+    while objets_tires < int(facteur_tresor):
+        resultat = random.randint(1, 100)
+        if 75 <= resultat <= 95:
+            objet_non_magique += 1
+        if 96 <= resultat <= 100:
+            objet_magique_faible += 1
+        objets_tires += 1
 
 # tirage niveau 2
 if niveau_rencontre == "2":
-    tresors_tires = 0
-    while tresors_tires < int(facteur_tresor):
+    pieces_tirees = 0
+    while pieces_tirees < int(facteur_tresor):
         resultat = random.randint(1, 100)
         if 14 <= resultat <= 23:
             piece_cuivre += lancer_des(1, 10) * 1000
@@ -53,21 +62,30 @@ if niveau_rencontre == "2":
             piece_or += lancer_des(4, 10) * 10
         if 96 <= resultat <= 100:
             piece_platine += lancer_des(1, 4) * 10
-        tresors_tires += 1
+        pieces_tirees += 1
 # tirage des gemmes et objets d'arts
-    gemmes_objet_arts_tires = 0
-    while gemmes_objet_arts_tires < int(facteur_tresor):
+    biens_precieux_tires = 0
+    while biens_precieux_tires < int(facteur_tresor):
         resultat = random.randint(1, 100)
         if 82 <= resultat <= 95:
             gemmes += lancer_des(1, 3)
         if 96 <= resultat <= 100:
             objets_arts += lancer_des(1, 3)
-        gemmes_objet_arts_tires += 1
+        biens_precieux_tires += 1
+# tirage des objets communs ou magiques
+    objets_tires = 0
+    while objets_tires < int(facteur_tresor):
+        resultat = random.randint(1, 100)
+        if 50 <= resultat <= 85:
+            objet_non_magique += 1
+        if 86 <= resultat <= 100:
+            objet_magique_faible += 1
+        objets_tires += 1
 
 # tirage niveau 3
 if niveau_rencontre == "3":
-    tresors_tires = 0
-    while tresors_tires < int(facteur_tresor):
+    pieces_tirees = 0
+    while pieces_tirees < int(facteur_tresor):
         resultat = random.randint(1, 100)
         if 12 <= resultat <= 21:
             piece_cuivre += lancer_des(2, 10) * 1000
@@ -77,21 +95,30 @@ if niveau_rencontre == "3":
             piece_or += lancer_des(1, 4) * 100
         if 96 <= resultat <= 100:
             piece_platine += lancer_des(1, 6) * 10
-        tresors_tires += 1
+        pieces_tirees += 1
 # tirage des gemmes et objets d'arts
-    gemmes_objet_arts_tires = 0
-    while gemmes_objet_arts_tires < int(facteur_tresor):
+    biens_precieux_tires = 0
+    while biens_precieux_tires < int(facteur_tresor):
         resultat = random.randint(1, 100)
         if 78 <= resultat <= 95:
             gemmes += lancer_des(1, 3)
         if 96 <= resultat <= 100:
             objets_arts += lancer_des(1, 3)
-        gemmes_objet_arts_tires += 1
+        biens_precieux_tires += 1
+# tirage des objets communs ou magiques
+    objets_tires = 0
+    while objets_tires < int(facteur_tresor):
+        resultat = random.randint(1, 100)
+        if 50 <= resultat <= 79:
+            objet_non_magique += lancer_des(1, 3)
+        if 80 <= resultat <= 100:
+            objet_magique_faible += 1
+        objets_tires += 1
 
 # tirage niveau 4
 if niveau_rencontre == "4":
-    tresors_tires = 0
-    while tresors_tires < int(facteur_tresor):
+    pieces_tirees = 0
+    while pieces_tirees < int(facteur_tresor):
         resultat = random.randint(1, 100)
         if 12 <= resultat <= 21:
             piece_cuivre += lancer_des(3, 10) * 1000
@@ -101,21 +128,30 @@ if niveau_rencontre == "4":
             piece_or += lancer_des(1, 6) * 100
         if 96 <= resultat <= 100:
             piece_platine += lancer_des(1, 8) * 10
-        tresors_tires += 1
+        pieces_tirees += 1
 # tirage des gemmes et objets d'arts
-    gemmes_objet_arts_tires = 0
-    while gemmes_objet_arts_tires < int(facteur_tresor):
+    biens_precieux_tires = 0
+    while biens_precieux_tires < int(facteur_tresor):
         resultat = random.randint(1, 100)
         if 71 <= resultat <= 95:
             gemmes += lancer_des(1, 4)
         if 96 <= resultat <= 100:
             objets_arts += lancer_des(1, 3)
-        gemmes_objet_arts_tires += 1
+        biens_precieux_tires += 1
+# tirage des objets communs ou magiques
+    objets_tires = 0
+    while objets_tires < int(facteur_tresor):
+        resultat = random.randint(1, 100)
+        if 43 <= resultat <= 62:
+            objet_non_magique += lancer_des(1, 4)
+        if 63 <= resultat <= 100:
+            objet_magique_faible += 1
+        objets_tires += 1
 
 # tirage niveau 5
 if niveau_rencontre == "5":
-    tresors_tires = 0
-    while tresors_tires < int(facteur_tresor):
+    pieces_tirees = 0
+    while pieces_tirees < int(facteur_tresor):
         resultat = random.randint(1, 100)
         if 11 <= resultat <= 19:
             piece_cuivre += lancer_des(1, 4) * 10000
@@ -125,16 +161,25 @@ if niveau_rencontre == "5":
             piece_or += lancer_des(1, 8) * 100
         if 96 <= resultat <= 100:
             piece_platine += lancer_des(1, 10) * 10
-        tresors_tires += 1
+        pieces_tirees += 1
 # tirage des gemmes et objets d'arts
-    gemmes_objet_arts_tires = 0
-    while gemmes_objet_arts_tires < int(facteur_tresor):
+    biens_precieux_tires = 0
+    while biens_precieux_tires < int(facteur_tresor):
         resultat = random.randint(1, 100)
         if 61 <= resultat <= 95:
             gemmes += lancer_des(1, 4)
         if 96 <= resultat <= 100:
             objets_arts += lancer_des(1, 4)
-        gemmes_objet_arts_tires += 1
+        biens_precieux_tires += 1
+# tirage des objets communs ou magiques
+    objets_tires = 0
+    while objets_tires < int(facteur_tresor):
+        resultat = random.randint(1, 100)
+        if 58 <= resultat <= 67:
+            objet_non_magique += lancer_des(1, 4)
+        if 68 <= resultat <= 100:
+            objet_magique_faible += lancer_des(1, 3)
+        objets_tires += 1
 
 # Tirage de la valeur des gemmes
 valeur_des_gemmes = 0
@@ -155,7 +200,7 @@ while gemmes_estimees < gemmes:
         valeur_des_gemmes += 5000
     gemmes_estimees += 1
 
-# Tirage de la valeur des objets d'arts
+# Tirage de la valeur des objets d'art
 valeur_des_objets_arts = 0
 objets_arts_estimees = 0
 while objets_arts_estimees < objets_arts:
@@ -186,6 +231,7 @@ while objets_arts_estimees < objets_arts:
         valeur_des_objets_arts += 7000
     objets_arts_estimees += 1
 
+
 print(f'Piece de Cuivre : {piece_cuivre}')
 print(f'Piece d\'argent : {piece_argent}')
 print(f'Piece d\'or : {piece_or}')
@@ -196,3 +242,8 @@ print(f'Valeur des gemmes récupérées : {valeur_des_gemmes} pièces d\'or')
 
 print(f'Objets d\'arts : {objets_arts}')
 print(f'Valeurs des objets d\'arts récupérés : {valeur_des_objets_arts} pièces d\'or')
+
+print(f'Objets communs : {objet_non_magique}')
+print(f'Objets magiques faibles : {objet_magique_faible}')
+print(f'Objets magiques intermédiaires : {objets_magique_intermediare}')
+print(f'Objets magiques puissants : {objets_magique_puissant}')
