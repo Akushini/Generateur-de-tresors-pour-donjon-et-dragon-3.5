@@ -7,12 +7,16 @@ Dans Donjon et Dragon, il faut régulièrement retribuer les efforts de vos aven
 -----
 
 A ce stade du projet, je me limite aux cinq premiers niveaux de rencontres
-
+ 
 Le tirage donne les gains en pièces.
-
-Mise à jour le 21/04/2022
-
-Le tirage donne les gains en pièces, les gemmes et objets d'arts trouvés ainsi que la valeur totale de ces derniers. 
+ 
+Mise à jour de 21/04/2022
+ 
+ Le tirage donne les gains en pièces, les gemmes et objets d'arts trouvés ainsi que la valeur totale de ces derniers. 
+ 
+Mise à jour de 24/04/2022
+ 
+ Le tirage permet de donner les gains en objets magiques et non magiques
 
 To do :
 
