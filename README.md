@@ -10,20 +10,20 @@ A ce stade du projet, je me limite aux cinq premiers niveaux de rencontres
  
 Le tirage donne les gains en pièces.
  
-Mise à jour de 21/04/2022
+Mise à jour du 21/04/2022
  
  Le tirage donne les gains en pièces, les gemmes et objets d'arts trouvés ainsi que la valeur totale de ces derniers. 
  
-Mise à jour de 24/04/2022
+Mise à jour du 24/04/2022
  
  Le tirage permet de donner les gains en objets magiques et non magiques
  Le tirage peut boucler avec une question finale
+ 
+Mise à jour du 05/05/2022
+
+ Le tirage permet de donner le nom des gemmes et objets d'arts tirés ainsi que leur valeur aléatoire individuelle
 
 To do :
-
-  Ajouter les objets à liste de trésors à obtenir
-  
-  Constituer une base de données :
     Gérer la table des objets communs
     Gérer la table des objets magiques :
       Gérer la table des anneaux
