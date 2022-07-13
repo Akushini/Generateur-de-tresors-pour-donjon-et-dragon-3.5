@@ -22,15 +22,9 @@ Mise à jour du 24/04/2022
 Mise à jour du 05/05/2022
 
  Le tirage permet de donner le nom des gemmes et objets d'arts tirés ainsi que leur valeur aléatoire individuelle
+ 
+ Mise à jour du 13/07/2022
 
-To do :
-    Gérer la table des objets communs
-    Gérer la table des objets magiques :
-      Gérer la table des anneaux
-      Gérer la table des armes
-      Gérer la table des armures et boucliers
-      Gérer la table des batons
-      Gérer la table des parchemins
-      Gérer la table des potions et huiles
-      Gérer la table des objets merveilleux
-      Gérer la table des sceptres
+Refonte majeur du programme pour le rendre plus lisible et fonctionnel
+
+To Do : Gérer la table des objets merveilleux avec un google sheet
