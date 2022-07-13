@@ -1,5 +1,17 @@
 import random
 
+from anneau import determiner_anneau_faible
+from arme import determiner_arme_faible, tirer_arme
+from armure import determiner_armure_bouclier_faible, tirer_armure
+from baguette import determiner_baguette_faible
+from objet_merveilleux import determiner_objet_merveilleux_faible
+from parchemin import lancer_sort_profane_0, lancer_sort_profane_1, lancer_sort_profane_2, lancer_sort_profane_3, \
+    lancer_sort_divin_3, lancer_sort_divin_2, lancer_sort_divin_1, lancer_sort_divin_0, lancer_sort_profane_5, \
+    lancer_sort_divin_5, lancer_sort_profane_4, lancer_sort_divin_4, lancer_sort_divin_6, lancer_sort_profane_6, \
+    lancer_sort_divin_7, lancer_sort_profane_7, lancer_sort_profane_8, lancer_sort_divin_8, lancer_sort_divin_9, \
+    lancer_sort_profane_9
+from potions_huiles import determiner_potion_huile_faibles
+
 
 def lancer_des(nombre_des, valeur_des):
     somme = 0
@@ -103,3 +115,399 @@ def lancer_objet_art(valeur_des_objets_arts):
         nom_objet_art = random.choice(type12)
     valeur_des_objets_arts += valeur
     return valeur_des_objets_arts, valeur, nom_objet_art
+
+
+def tirer_objet_non_magique(valeur_objets_non_magiques):
+    resultat = random.randint(1, 100)
+    if 1 <= resultat <= 17:
+        valeur_objets_non_magiques, nombre_objet_non_magique, nom_objet_non_magique, valeur = tirer_objet_special(valeur_objets_non_magiques)
+    if 18 <= resultat <= 50:
+        valeur_objets_non_magiques, nombre_objet_non_magique, nom_objet_non_magique, valeur = tirer_armure(valeur_objets_non_magiques)
+    if 51 <= resultat <= 83:
+        valeur_objets_non_magiques, nombre_objet_non_magique, nom_objet_non_magique, valeur, cac = tirer_arme(valeur_objets_non_magiques)
+    if 84 <= resultat <= 100:
+        valeur_objets_non_magiques, nombre_objet_non_magique, nom_objet_non_magique, valeur = tirer_materiel_et_equipement(valeur_objets_non_magiques)
+    return valeur_objets_non_magiques, nombre_objet_non_magique, nom_objet_non_magique, valeur
+
+
+def tirer_objet_special(valeur_objets_non_magiques):
+    resultat = random.randint(1, 100)
+    if 1 <= resultat <= 12:
+        nom_objet_non_magique = 'feu grégeois'
+        nombre_objet_non_magique = random.randint(1, 4)
+        valeur = nombre_objet_non_magique * 20
+    if 13 <= resultat <= 24:
+        nom_objet_non_magique = 'acide'
+        nombre_objet_non_magique = random.randint(2, 8)
+        valeur = nombre_objet_non_magique * 10
+    if 25 <= resultat <= 36:
+        nom_objet_non_magique = 'bâtonnets fumigènes'
+        nombre_objet_non_magique = random.randint(1, 4)
+        valeur = nombre_objet_non_magique * 20
+    if 37 <= resultat <= 48:
+        nom_objet_non_magique = 'eau bénite'
+        nombre_objet_non_magique = random.randint(1, 4)
+        valeur = nombre_objet_non_magique * 25
+    if 49 <= resultat <= 62:
+        nom_objet_non_magique = 'antidote'
+        nombre_objet_non_magique = random.randint(1, 4)
+        valeur = nombre_objet_non_magique * 50
+    if 63 <= resultat <= 74:
+        nom_objet_non_magique = 'torche éternelle'
+        nombre_objet_non_magique = 1
+        valeur = nombre_objet_non_magique * 110
+    if 75 <= resultat <= 88:
+        nom_objet_non_magique = 'sacoches immobilisantes'
+        nombre_objet_non_magique = random.randint(1, 4)
+        valeur = nombre_objet_non_magique * 50
+    if 89 <= resultat <= 100:
+        nom_objet_non_magique = 'pierres à tonnerre'
+        nombre_objet_non_magique = random.randint(1, 4)
+        valeur = nombre_objet_non_magique * 30
+    valeur_objets_non_magiques += valeur
+    return valeur_objets_non_magiques, nombre_objet_non_magique, nom_objet_non_magique, valeur
+
+
+def tirer_materiel_et_equipement(valeur_objets_non_magiques):
+    resultat = random.randint(1, 100)
+    if 1 <= resultat <= 3:
+        nom_objet_non_magique = 'sac à dos vide'
+        valeur = 2
+    if 4 <= resultat <= 6:
+        nom_objet_non_magique = 'pied-de-biche'
+        valeur = 2
+    if 7 <= resultat <= 11:
+        nom_objet_non_magique = 'lanterne sourde'
+        valeur = 12
+    if 12 <= resultat <= 16:
+        nom_objet_non_magique = 'cadenas simple'
+        valeur = 20
+    if 17 <= resultat <= 21:
+        nom_objet_non_magique = 'cadenas moyen'
+        valeur = 40
+    if 22 <= resultat <= 28:
+        nom_objet_non_magique = 'bon cadenas'
+        valeur = 80
+    if 29 <= resultat <= 35:
+        nom_objet_non_magique = 'excellent cadenas'
+        valeur = 150
+    if 36 <= resultat <= 40:
+        nom_objet_non_magique = 'menotte de qualité supérieure'
+        valeur = 50
+    if 41 <= resultat <= 43:
+        nom_objet_non_magique = 'petit miroir en acier'
+        valeur = 10
+    if 44 <= resultat <= 46:
+        nom_objet_non_magique = 'corde en soie, 15m'
+        valeur = 10
+    if 47 <= resultat <= 53:
+        nom_objet_non_magique = 'longue-vue'
+        valeur = 1000
+    if 54 <= resultat <= 58:
+        nom_objet_non_magique = 'outils de maître artisan'
+        valeur = 55
+    if 59 <= resultat <= 63:
+        nom_objet_non_magique = 'matériel d\'escalade'
+        valeur = 80
+    if 64 <= resultat <= 68:
+        nom_objet_non_magique = 'trousse de déguisement'
+        valeur = 50
+    if 69 <= resultat <= 73:
+        nom_objet_non_magique = 'trouse de premiers secours'
+        valeur = 50
+    if 74 <= resultat <= 77:
+        nom_objet_non_magique = 'symbole sacré en argent'
+        valeur = 25
+    if 78 <= resultat <= 81:
+        nom_objet_non_magique = 'sablier'
+        valeur = 25
+    if 82 <= resultat <= 88:
+        nom_objet_non_magique = 'loupe'
+        valeur = 100
+    if 89 <= resultat <= 95:
+        nom_objet_non_magique = 'intrument de musique de maître'
+        valeur = 100
+    if 96 <= resultat <= 100:
+        nom_objet_non_magique = 'outils de cambrioleur de qualité supérieure'
+        valeur = 50
+    nombre_objet_non_magique = 1
+    valeur_objets_non_magiques += valeur
+    return valeur_objets_non_magiques, nombre_objet_non_magique, nom_objet_non_magique, valeur
+
+
+def determiner_objet_magique_faible(valeur_objets_magiques):
+    resultat = random.randint(1,100)
+    if 1 <= resultat <= 2:
+        nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur = determiner_anneau_faible(valeur_objets_magiques)
+    if 3 <= resultat <= 7:
+        nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur = determiner_arme_faible(valeur_objets_magiques)
+    if 8 <= resultat <= 11:
+        nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur = determiner_armure_bouclier_faible(valeur_objets_magiques)
+    if 12 <= resultat <= 21:
+        nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur = determiner_baguette_faible(valeur_objets_magiques)
+    if 22 <= resultat <= 30:
+        nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur = determiner_objet_merveilleux_faible(valeur_objets_magiques)
+    if 31 <= resultat <= 65:
+        nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur = determiner_parchemin_faible(valeur_objets_magiques)
+    if 66 <= resultat <= 100:
+        nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur = determiner_potion_huile_faibles(valeur_objets_magiques)
+    return nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur
+
+
+# les parchemins
+def determiner_parchemin_faible(valeur_objets_magiques):
+    list_sorts_parchemin = []
+    valeur_parchemin = 0
+    niveau_sorts_determines = 0
+    sorts_determines = 0
+    niveau_sort_0 = 0
+    niveau_sort_1 = 0
+    niveau_sort_2 = 0
+    niveau_sort_3 = 0
+    resultat = random.randint(1, 100)
+    if 1 <= resultat <= 70:
+        profane = True
+    else:
+        profane = False
+    nombre_sorts = random.randint(1, 3)
+    while niveau_sorts_determines < nombre_sorts:
+        resultat = random.randint(1, 100)
+        if 1 <= resultat <= 5:
+            niveau_sort_0 += 1
+        if 6 <= resultat <= 50:
+            niveau_sort_1 += 1
+        if 51 <= resultat <= 95:
+            niveau_sort_2 += 1
+        if 96 <= resultat <= 100:
+            niveau_sort_3 += 1
+        niveau_sorts_determines += 1
+    while sorts_determines < niveau_sorts_determines:
+        while niveau_sort_3 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_3()
+            else:
+                valeur, nom_sort = lancer_sort_divin_3()
+            niveau_sort_3 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_2 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_2()
+            else:
+                valeur, nom_sort = lancer_sort_divin_2()
+            niveau_sort_2 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_1 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_1()
+            else:
+                valeur, nom_sort = lancer_sort_divin_1()
+            niveau_sort_1 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_0 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_0()
+            else:
+                valeur, nom_sort = lancer_sort_divin_0()
+            niveau_sort_0 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+    valeur_objets_magiques += valeur_parchemin
+    valeur = valeur_parchemin
+    nombre_objet_magique = 1
+    type_magie = 'profane' if profane else 'divin'
+    nom_objet_magique = f'parchemin {type_magie} de {", ".join(list_sorts_parchemin)}'
+    return nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur
+
+
+def determiner_parchemin_intermediaire(valeur_objets_magiques):
+    list_sorts_parchemin = []
+    valeur_parchemin = 0
+    niveau_sorts_determines = 0
+    sorts_determines = 0
+    niveau_sort_2 = 0
+    niveau_sort_3 = 0
+    niveau_sort_4 = 0
+    niveau_sort_5 = 0
+    resultat = random.randint(1, 100)
+    if 1 <= resultat <= 70:
+        profane = True
+    else:
+        profane = False
+    nombre_sorts = random.randint(1, 4)
+    while niveau_sorts_determines < nombre_sorts:
+        resultat = random.randint(1, 100)
+        if 1 <= resultat <= 5:
+            niveau_sort_2 += 1
+        if 6 <= resultat <= 65:
+            niveau_sort_3 += 1
+        if 66 <= resultat <= 95:
+            niveau_sort_4 += 1
+        if 96 <= resultat <= 100:
+            niveau_sort_5 += 1
+        niveau_sorts_determines += 1
+    while sorts_determines < niveau_sorts_determines:
+        while niveau_sort_5 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_5()
+            else:
+                valeur, nom_sort = lancer_sort_divin_5()
+            niveau_sort_5 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_4 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_4()
+            else:
+                valeur, nom_sort = lancer_sort_divin_4()
+            niveau_sort_4 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_3 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_3()
+            else:
+                valeur, nom_sort = lancer_sort_divin_3()
+            niveau_sort_3 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_2 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_2()
+            else:
+                valeur, nom_sort = lancer_sort_divin_2()
+            niveau_sort_2 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+    valeur_objets_magiques += valeur_parchemin
+    valeur = valeur_parchemin
+    nombre_objet_magique = 1
+    type_magie = 'profane' if profane else 'divin'
+    nom_objet_magique = f'parchemin {type_magie} de {", ".join(list_sorts_parchemin)}'
+    return nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur
+
+
+def determiner_parchemin_puissant(valeur_objets_magiques):
+    list_sorts_parchemin = []
+    valeur_parchemin = 0
+    niveau_sorts_determines = 0
+    sorts_determines = 0
+    niveau_sort_4 = 0
+    niveau_sort_5 = 0
+    niveau_sort_6 = 0
+    niveau_sort_7 = 0
+    niveau_sort_8 = 0
+    niveau_sort_9 = 0
+    resultat = random.randint(1, 100)
+    if 1 <= resultat <= 70:
+        profane = True
+    else:
+        profane = False
+    nombre_sorts = random.randint(1, 6)
+    while niveau_sorts_determines < nombre_sorts:
+        resultat = random.randint(1, 100)
+        if 1 <= resultat <= 5:
+            niveau_sort_4 += 1
+        if 6 <= resultat <= 50:
+            niveau_sort_5 += 1
+        if 51 <= resultat <= 70:
+            niveau_sort_6 += 1
+        if 71 <= resultat <= 85:
+            niveau_sort_7 += 1
+        if 86 <= resultat <= 95:
+            niveau_sort_8 += 1
+        if 96 <= resultat <= 100:
+            niveau_sort_9 += 1
+        niveau_sorts_determines += 1
+    while sorts_determines < niveau_sorts_determines:
+        while niveau_sort_9 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_9()
+            else:
+                valeur, nom_sort = lancer_sort_divin_9()
+            niveau_sort_9 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_8 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_8()
+            else:
+                valeur, nom_sort = lancer_sort_divin_8()
+            niveau_sort_8 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_7 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_7()
+            else:
+                valeur, nom_sort = lancer_sort_divin_7()
+            niveau_sort_7 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_6 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_6()
+            else:
+                valeur, nom_sort = lancer_sort_divin_6()
+            niveau_sort_6 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_5 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_5()
+            else:
+                valeur, nom_sort = lancer_sort_divin_5()
+            niveau_sort_5 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+        while niveau_sort_4 > 0:
+            if profane:
+                valeur, nom_sort = lancer_sort_profane_4()
+            else:
+                valeur, nom_sort = lancer_sort_divin_4()
+            niveau_sort_4 -= 1
+            sorts_determines += 1
+            valeur_parchemin += valeur
+            list_sorts_parchemin.append(nom_sort)
+    valeur_objets_magiques += valeur_parchemin
+    valeur = valeur_parchemin
+    nombre_objet_magique = 1
+    type_magie = 'profane' if profane else 'divin'
+    nom_objet_magique = f'parchemin {type_magie} de {", ".join(list_sorts_parchemin)}'
+    return nom_objet_magique, nombre_objet_magique, valeur_objets_magiques, valeur
+
+
+def poser_question_puissance():
+    bonne_reponse = False
+    while not bonne_reponse:
+        puissance = input("1 - Faible \n"
+                          "2 - Intermédiaire \n"
+                          "3 - Fort \n")
+        if puissance.isdigit() and 1 <= int(puissance) <= 3:
+            puissance = int(puissance)
+            bonne_reponse = True
+            bonne_reponse_2 = False
+            while not bonne_reponse_2:
+                combien = input('Combien ?')
+                if combien.isdigit() and int(combien) > 0:
+                    combien = int(combien)
+                    return puissance, combien
+                else:
+                    print("Veuillez entrer un nombre entier supérieur à 0")
+        else:
+            print("Veuillez entrer un nombre entier entre 1 et 3")
